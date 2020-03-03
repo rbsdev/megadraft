@@ -298,11 +298,7 @@ export default class Toolbar extends Component {
     });
 
     return (
-      <div
-        className={toolbarClass}
-        style={this.state.position}
-        ref="toolbarWrapper"
-      >
+      <div className={toolbarClass} style={this.state.position}>
         <div style={{ position: "absolute", bottom: 0 }}>
           <div
             className="toolbar__wrapper"
@@ -310,7 +306,10 @@ export default class Toolbar extends Component {
               this.toolbarEl = el;
             }}
             onMouseDown={e => {
-              if (e.target.localName !== "input") {
+              if (
+                e.target.localName !== "input" &&
+                e.target.localName !== "select"
+              ) {
                 e.preventDefault();
               }
             }}
